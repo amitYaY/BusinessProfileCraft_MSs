@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    consul:
+      config:
+        enabled: false
+
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+
+corePoolSize: 10
+maxPoolSize: 10
+queueCapacity: 10
+validationServiceEndPoints: http://localhost:9117/

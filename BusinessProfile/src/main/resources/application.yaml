@@ -1,0 +1,38 @@
+server:
+  port: 9118
+spring:
+  application:
+    name: business-profile
+  config:
+    import: consul:localhost:8500
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      config:
+        enabled: true
+        format: YAML
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9116/eureka/
+    registerWithEureka: true
+    fetchRegistry: true
+
+#server.error.include-message=always
+#server.error.include-binding-errors=always
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      validatorServiceCB:
+        registerHealthIndicator: true
+        eventConsumerBufferSize: 10
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        failureRateThreshold: 50
+        minimumNumberOfCalls: 3
+        permittedNumberOfCallsInHalfOpenState: 1
+        slidingWindowSize: 10
+        waitDurationInOpenState: 5s
+        slidingWindowType: COUNT_BASED
