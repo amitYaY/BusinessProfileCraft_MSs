@@ -53,9 +53,9 @@ class RentalServiceManagerImplTest {
     @Test
     public void fetchAvailableVehicles() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
-        rsc.onboardBranch("B7", "VAN");
-        rsc.onboardVehicle("B7", "VAN", "V1", 500);
-        String res = rsc.fetchAvailableVehicles("B7", 1, 5);
+        rsc.onboardBranch("B8", "VAN");
+        rsc.onboardVehicle("B8", "VAN", "V1", 500);
+        String res = rsc.fetchAvailableVehicles("B8", 1, 5);
         assertEquals("V1", res);
     }
 }
