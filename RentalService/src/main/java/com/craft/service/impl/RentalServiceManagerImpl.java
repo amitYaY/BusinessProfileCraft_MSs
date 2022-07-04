@@ -49,12 +49,15 @@ public class RentalServiceManagerImpl implements RentalServiceManager {
         List<RentalVehicle> vehicles = findAllAvailableVehicleList(branchId, startTime, endTime);
         RentalVehicle rentalVehicle = vehicles.stream().filter(vehicle -> vehicle.getVehicleType().name().equals(vehicleType))
                 .findFirst().orElse(null);
-        assert rentalVehicle != null;
-        boolean[] slots = rentalVehicle.getSlots();
-        for (int i = startTime; i <= endTime; i++) {
-            slots[i] = true;
+        if(rentalVehicle != null ) {
+            boolean[] slots = rentalVehicle.getSlots();
+            for (int i = startTime; i <= endTime; i++) {
+                slots[i] = true;
+            }
+            return rentalVehicle.getPrice() * (endTime - startTime);
+        } else {
+            return -1;
         }
-        return rentalVehicle.getPrice() * (endTime - startTime);
     }
 
     @Override
