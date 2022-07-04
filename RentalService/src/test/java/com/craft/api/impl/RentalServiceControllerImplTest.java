@@ -1,6 +1,5 @@
 package com.craft.api.impl;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RentalServiceControllerImplTest {
 
     @Test
-    @Order(1)
     public void onboardBranch() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         boolean res = rsc.onboardBranch("B1", "CAR,BIKE,VAN");
@@ -16,7 +14,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(2)
     public void onboardBranch_Failure() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         boolean res = rsc.onboardBranch("B2", "TRUCK");
@@ -24,7 +21,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(3)
     public void onboardVehicle() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         rsc.onboardBranch("B3", "CAR,BIKE,VAN");
@@ -33,7 +29,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(4)
     public void onboardVehicle_Failure() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         rsc.onboardBranch("B4", "CAR,BIKE,VAN");
@@ -42,7 +37,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(5)
     public void bookVehicle() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         rsc.onboardBranch("B5", "CAR,BIKE,VAN");
@@ -52,7 +46,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(6)
     public void bookVehicle_failure() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         rsc.onboardBranch("B6", "CAR,BIKE,VAN");
@@ -62,7 +55,6 @@ public class RentalServiceControllerImplTest {
     }
 
     @Test
-    @Order(7)
     public void fetchAvailableVehicles() {
         RentalServiceControllerImpl rsc = new RentalServiceControllerImpl();
         rsc.onboardBranch("B7", "CAR,BIKE,VAN");

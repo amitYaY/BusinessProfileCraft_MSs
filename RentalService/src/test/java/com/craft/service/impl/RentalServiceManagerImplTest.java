@@ -1,6 +1,5 @@
 package com.craft.service.impl;
 
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -16,7 +15,6 @@ class RentalServiceManagerImplTest {
     }
 
     @Test
-    @Order(2)
     public void onboardBranch_Failure() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
         try {
@@ -27,7 +25,6 @@ class RentalServiceManagerImplTest {
     }
 
     @Test
-    @Order(3)
     public void onboardVehicle() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
         rsc.onboardBranch("B3", "CAR");
@@ -36,7 +33,6 @@ class RentalServiceManagerImplTest {
     }
 
     @Test
-    @Order(5)
     public void bookVehicle() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
         rsc.onboardBranch("B5", "CAR");
@@ -46,7 +42,6 @@ class RentalServiceManagerImplTest {
     }
 
     @Test
-    @Order(6)
     public void bookVehicle_failure() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
         rsc.onboardBranch("B6", "VAN");
@@ -56,7 +51,6 @@ class RentalServiceManagerImplTest {
     }
 
     @Test
-    @Order(7)
     public void fetchAvailableVehicles() {
         RentalServiceManagerImpl rsc = new RentalServiceManagerImpl();
         rsc.onboardBranch("B7", "VAN");
